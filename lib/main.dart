@@ -10,6 +10,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //Final Keyword In Dart
+    // The final keyword is used to hardcode the values of the variable and it
+    // cannot be altered in future, neither any kind of operations performed on \
+    // these variables can alter its value (state).
+    final wordPair = WordPair.random();
     return MaterialApp(
       title: 'Welcome to Flutter',
       home: Scaffold(
