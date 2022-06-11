@@ -45,6 +45,10 @@ class RandomWords extends StatefulWidget {
 // This class saves the list of generated word pairs,
 // which grows infinitely as the user scrolls
 class _RandomWordsState extends State<RandomWords> {
+  //Add a _suggestions list for saving suggested word pairings.
+  final _suggestions = <WordPair>[];
+  // Also, add a _biggerFont variable for making the font size larger.
+  final _biggerFont = const TextStyle(fontSize: 18);
   @override
   Widget build(BuildContext context) {
     final wordPair = WordPair.random();
