@@ -16,16 +16,17 @@ class MyApp extends StatelessWidget {
     // The final keyword is used to hardcode the values of the variable and it
     // cannot be altered in future, neither any kind of operations performed on \
     // these variables can alter its value (state).
-    final wordPair = WordPair.random();
+    // final wordPair = WordPair.random();
     return MaterialApp(
       title: 'Welcome to Flutter',
       home: Scaffold(
         appBar: AppBar(
           title: const Text('Welcome to Flutter'),
         ),
-        body: Center(
+        body: const Center(
           // child: Text('Hello World'),
-          child: Text(wordPair.asPascalCase),
+          // child: Text(wordPair.asPascalCase),
+          child: RandomWords(),
         ),
       ),
     );
@@ -39,10 +40,14 @@ class RandomWords extends StatefulWidget {
   State<RandomWords> createState() => _RandomWordsState();
 }
 
+// Generic state class specialized to use with RandomWords
+// it maintains the state for the RandomWords widget.
+// This class saves the list of generated word pairs,
+// which grows infinitely as the user scrolls
 class _RandomWordsState extends State<RandomWords> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    final wordPair = WordPair.random();
+    return Text(wordPair.asCamelCase);
   }
 }
-
