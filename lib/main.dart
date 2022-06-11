@@ -5,6 +5,8 @@ void main() {
   runApp(const MyApp());
 }
 
+//Stateless widgets are immutable,
+// meaning that their properties can't change—all values are final.
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
