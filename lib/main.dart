@@ -10,6 +10,11 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
+  //context is a BuildContext instance which gets passed to the builder
+  // of a widget in order to let it know where it is
+  // inside the Widget Tree of your app.
+  // One of the common uses is passing it
+  // to the of method when using an Inherited Widget.
   @override
   Widget build(BuildContext context) {
     //Final Keyword In Dart
@@ -53,6 +58,8 @@ class _RandomWordsState extends State<RandomWords> {
   Widget build(BuildContext context) {
     return ListView.builder(
       padding: const EdgeInsets.all(16.0),
+      //The itemBuilder callback is called once per suggested word pairing,
+      // and places each suggestion into a ListTile row.
       itemBuilder: (context,i) {
         if(i.isOdd) return const Divider();
         final index = i ~/2;
