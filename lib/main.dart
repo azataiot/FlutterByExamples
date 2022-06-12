@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
       title: 'Welcome to Flutter',
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Welcome to Flutter'),
+          title: const Text('Startup Name Generator'),
         ),
         body: const Center(
           // child: Text('Hello World'),
@@ -61,7 +61,10 @@ class _RandomWordsState extends State<RandomWords> {
       //The itemBuilder callback is called once per suggested word pairing,
       // and places each suggestion into a ListTile row.
       itemBuilder: (context,i) {
+        // the function adds a Divider widget to visually separate the entries.
         if(i.isOdd) return const Divider();
+        // The syntax i ~/ 2 divides i by 2 and returns an integer result.
+        // This calculates the actual number of word pairings in the ListView,minus the divider widgets.
         final index = i ~/2;
         if(index >= _suggestions.length) {
           _suggestions.addAll(generateWordPairs().take(10));
