@@ -22,9 +22,16 @@ class MyApp extends StatelessWidget {
     // cannot be altered in future, neither any kind of operations performed on \
     // these variables can alter its value (state).
     // final wordPair = WordPair.random();
-    return const MaterialApp(
+    return MaterialApp(
       title: 'Welcome to Flutter',
-      home: RandomWords(),
+      theme: ThemeData(
+        // Add the 5 lines from here...
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Colors.white,
+          foregroundColor: Colors.black,
+        ),
+      ),
+      home: const RandomWords(),
     );
   }
 }
@@ -49,37 +56,30 @@ class _RandomWordsState extends State<RandomWords> {
   final _biggerFont = const TextStyle(fontSize: 18);
 
   void _pushSaved() {
-    Navigator.of(context).push(
-      MaterialPageRoute<void>(
-        builder: (context) {
-          final tiles = _saved.map(
-              (pair){
-                return ListTile(
-                  title: Text(
-                    pair.asPascalCase,
-                    style: _biggerFont,
-                  ),
-                );
-              },
+    Navigator.of(context).push(MaterialPageRoute<void>(builder: (context) {
+      final tiles = _saved.map(
+        (pair) {
+          return ListTile(
+            title: Text(
+              pair.asPascalCase,
+              style: _biggerFont,
+            ),
           );
-          final divided = tiles.isNotEmpty
-          ? ListTile.divideTiles(
-            context: context,
-            tiles: tiles
-          ).toList()
-              : <Widget>[];
+        },
+      );
+      final divided = tiles.isNotEmpty
+          ? ListTile.divideTiles(context: context, tiles: tiles).toList()
+          : <Widget>[];
 
-          return Scaffold(
-            appBar: AppBar(
-              title: const Text('Saved suggestions'),
-            ),
-            body: ListView(
-              children: divided,
-            ),
-          );
-        }
-      )
-    );
+      return Scaffold(
+        appBar: AppBar(
+          title: const Text('Saved suggestions'),
+        ),
+        body: ListView(
+          children: divided,
+        ),
+      );
+    }));
   }
 
   @override
