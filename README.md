@@ -1,8 +1,6 @@
-# my_app
+# Take your Flutter app from boring to beautiful
+https://codelabs.developers.google.com/codelabs/flutter-boring-to-beautiful#0
 
-A new Flutter project.
-
-This is the init branch of the project. which holds the initial new project for later use.
 
 ## Getting Started
 
