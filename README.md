@@ -2,6 +2,8 @@
 
 A new Flutter project.
 
+This is the init branch of the project. which holds the initial new project for later use.
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
